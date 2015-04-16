@@ -31,21 +31,12 @@ for fileLink in fileLinks:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
   	title = fileLink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
-  	print title
-  	
-  	'''
-  	title = cleanLink.contents[0]
-  	#  title = title
-	#  title = title.replace('\x00', ' ').replace(u'\ufeff', ' ').encode('utf-8').decode('unicode-escape')
 	title = title.upper().strip()
-	print title
-	
 	csvYr = title.split(' ')[1]
 	csvMth = title.split(' ')[0][:3]
 	csvMth = convert_mth_strings(csvMth);
-
 	filename = entity_id + "_" + csvYr + "_" + csvMth
 	todays_date = str(datetime.now())
 	scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 	print filename
-	'''
+	
