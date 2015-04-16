@@ -20,7 +20,7 @@ def convert_mth_strings ( mth_string ):
 
 # pull down the content from the webpage
 html = urllib2.urlopen(url)
-soup = BeautifulSoup(html).encode_contents(formatter='html')
+soup = BeautifulSoup(html)
 
 # find all entries with the required class
 fileLinks = soup.findAll('a', href=True)
@@ -31,7 +31,7 @@ for fileLink in fileLinks:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
   	title = fileLink.contents[0]
-  	title = title.encode_contents(formatter='html').replace('&nbsp;',' ')
+  	title = title.encode_contents(formatter='html')
 	#  title = title.replace('\x00', ' ').replace(u'\ufeff', ' ').encode('utf-8').decode('unicode-escape')
 	title = title.upper().strip()
 	print title
