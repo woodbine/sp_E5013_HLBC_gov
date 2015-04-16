@@ -31,6 +31,9 @@ for fileLink in fileLinks:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
   	cleanLink = fileLink.encode_contents(formatter='html') #  gets rid of erroneous &nbsp; chars
+  	print cleanLink
+  	
+  	'''
   	title = cleanLink.contents[0]
   	#  title = title
 	#  title = title.replace('\x00', ' ').replace(u'\ufeff', ' ').encode('utf-8').decode('unicode-escape')
@@ -45,3 +48,4 @@ for fileLink in fileLinks:
 	todays_date = str(datetime.now())
 	scraperwiki.sqlite.save(unique_keys=['l'], data={"l": fileUrl, "f": filename, "d": todays_date })
 	print filename
+	'''
