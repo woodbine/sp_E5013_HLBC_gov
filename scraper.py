@@ -31,7 +31,7 @@ for fileLink in fileLinks:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
   	title = fileLink.contents[0]
-	# create the right strings for the new filename
+	title = title.replace('&nbsp;',' ')
 	title = title.upper().strip()
 	csvYr = title.split(' ')[1]
 	csvMth = title.split(' ')[0][:3]
