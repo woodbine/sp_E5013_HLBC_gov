@@ -30,7 +30,7 @@ for fileLink in fileLinks:
   if '.csv' in href:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
-  	cleanLink = fileLink.encode_contents(formatter='html') #  gets rid of erroneous &nbsp; chars
+  	title = fileLink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
   	print cleanLink
   	
   	'''
