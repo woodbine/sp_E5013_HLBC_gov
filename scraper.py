@@ -33,6 +33,8 @@ for fileLink in fileLinks:
   	title = fileLink.contents[0]
 	title = title.replace('&nbsp;',' ')
 	title = title.upper().strip()
+	print title
+	
 	csvYr = title.split(' ')[1]
 	csvMth = title.split(' ')[0][:3]
 	csvMth = convert_mth_strings(csvMth);
