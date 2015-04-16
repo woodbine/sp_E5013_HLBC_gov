@@ -31,7 +31,7 @@ for fileLink in fileLinks:
   	# add the right prefix onto the url
   	fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
   	title = fileLink.contents[0]
-	title = title.replace('\x00', ' ').replace(u'\ufeff', ' ').encode('utf-8')
+	title = title.replace('\x00', ' ').replace(u'\ufeff', ' ').encode('utf-8').decode('unicode-escape')
 	title = title.upper().strip()
 	print title
 	
