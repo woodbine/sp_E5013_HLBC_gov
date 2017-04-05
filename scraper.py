@@ -96,19 +96,17 @@ soup = BeautifulSoup(html, 'lxml')
 
 #### SCRAPE DATA
 
-fileLinks = soup.findAll('a', href=True)
+fileLinks = soup.findAll('a', attrs={'rel':'external'})
 
 for fileLink in fileLinks:
-  href = fileLink['href']
-  if '.csv' in href:
-
-    fileUrl = href.replace("/Assets","http://www.hackney.gov.uk/Assets")
+  href = 'http://www.hackney.gov.uk'+fileLink['href']
+  if 'spreadsheet' in fileLink.text:
     title = fileLink.encode_contents(formatter='html').replace('&nbsp;',' ')
     title = title.upper().strip()
     csvYr = title.split(' ')[1]
     csvMth = title.split(' ')[0][:3]
     csvMth = convert_mth_strings(csvMth.upper())
-    data.append([csvYr, csvMth, fileUrl])
+    data.append([csvYr, csvMth, href])
 
 #### STORE DATA 1.0
 
